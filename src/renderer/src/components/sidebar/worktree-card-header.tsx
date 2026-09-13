@@ -45,7 +45,7 @@ function RepoIdentityChip({
         </TooltipContent>
       </Tooltip>
       {showLabel ? (
-        <span className="min-w-0 truncate text-[11px] leading-4 text-muted-foreground">
+        <span className="min-w-0 truncate text-xs leading-4 text-muted-foreground">
           {repo.displayName}
         </span>
       ) : null}
