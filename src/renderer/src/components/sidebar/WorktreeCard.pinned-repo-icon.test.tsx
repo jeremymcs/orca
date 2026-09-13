@@ -129,6 +129,7 @@ describe('WorktreeCard pinned repo icon', () => {
 
       expect(markup).toContain('🦊')
       expect(markup).toContain('Project orca')
+      expect(markup).toContain('>orca</span>')
     },
     WORKTREE_CARD_IMPORT_TIMEOUT_MS
   )
@@ -169,6 +170,7 @@ describe('WorktreeCard pinned repo icon', () => {
 
       expect(markup).toContain('🦊')
       expect(markup).toContain('Project orca')
+      expect(markup).toContain('>orca</span>')
       expect(markup).not.toContain('data-worktree-card-meta-row=""')
     },
     WORKTREE_CARD_IMPORT_TIMEOUT_MS
