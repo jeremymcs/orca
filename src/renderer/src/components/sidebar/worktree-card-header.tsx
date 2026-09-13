@@ -31,11 +31,18 @@ function RepoIdentityChip({
         <TooltipTrigger asChild>
           <span
             className="inline-flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-worktree-sidebar-border bg-worktree-sidebar-accent/55"
-            aria-label={translate(
-              'auto.components.sidebar.WorktreeCard.35ccfe2475',
-              'Project {{value0}}',
-              { value0: repo.displayName }
-            )}
+            aria-label={
+              showLabel
+                ? undefined
+                : translate(
+                    'auto.components.sidebar.WorktreeCard.35ccfe2475',
+                    'Project {{value0}}',
+                    {
+                      value0: repo.displayName
+                    }
+                  )
+            }
+            aria-hidden={showLabel || undefined}
           >
             {children}
           </span>
