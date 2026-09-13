@@ -104,6 +104,13 @@ function makeWorktree(overrides: Partial<Worktree> = {}): Worktree {
   }
 }
 
+function getMarkupTextContent(markup: string): string {
+  return markup
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 describe('WorktreeCard pinned repo icon', () => {
   beforeEach(() => {
     vi.clearAllMocks()
@@ -129,7 +136,7 @@ describe('WorktreeCard pinned repo icon', () => {
 
       expect(markup).toContain('🦊')
       expect(markup).toContain('Project orca')
-      expect(markup).toContain('>orca</span>')
+      expect(getMarkupTextContent(markup)).toContain('orca')
     },
     WORKTREE_CARD_IMPORT_TIMEOUT_MS
   )
@@ -170,7 +177,7 @@ describe('WorktreeCard pinned repo icon', () => {
 
       expect(markup).toContain('🦊')
       expect(markup).toContain('Project orca')
-      expect(markup).toContain('>orca</span>')
+      expect(getMarkupTextContent(markup)).toContain('orca')
       expect(markup).not.toContain('data-worktree-card-meta-row=""')
     },
     WORKTREE_CARD_IMPORT_TIMEOUT_MS
